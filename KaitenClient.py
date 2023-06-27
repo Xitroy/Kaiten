@@ -1,4 +1,6 @@
 from resources.Card import Card
+from resources.Space import Space
+from resources.Board import Board
 class KaitenClient:
 
     DEFAULT_OPTIONS = {
@@ -19,3 +21,9 @@ class KaitenClient:
 
     def get_card(self, card_id):
         return Card(self, card_id)
+
+    def get_space(self, space_id):
+        return Space(self, space_id)
+
+    def get_board(self, board_id):
+        return Board(self, board_id)
