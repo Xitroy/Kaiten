@@ -1,4 +1,4 @@
-from Resource import Resource
+from resources.Resource import Resource
 import requests
 class Space(Resource):
     def __init__(self, client, space_id):

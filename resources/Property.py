@@ -1,5 +1,5 @@
 import requests
-from Resource import Resource
+from resources.Resource import Resource
 
 
 class Property(Resource):
