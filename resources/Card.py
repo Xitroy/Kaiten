@@ -1,5 +1,6 @@
 import requests
-from Resource import Resource
+from resources.Resource import Resource
+
 class Card(Resource):
     def __init__(self, client, card_id):
         self.api_url = f"{client.base_api_url}/cards/{card_id}"
