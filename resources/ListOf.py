@@ -3,10 +3,12 @@ from resources.Space import Space
 
 class ListOf:
 
-    @staticmethod
-    def spaces(client, ids_only = False):
-        api_url = f"{client.base_api_url}/spaces"
-        list_of_spaces = requests.get(api_url, headers=client.headers)
+    def __init__(self, client):
+        self.client = client
+
+    def spaces(self, ids_only = False):
+        api_url = f"{self.client.base_api_url}/spaces"
+        list_of_spaces = requests.get(api_url, headers=self.client.headers)
         list_of_spaces_dict = list_of_spaces.json()
         if ids_only:
             list_of_space_ids = list_of_spaces_dict[]
@@ -14,36 +16,29 @@ class ListOf:
         else:
             list_of_space_objects = []
             for space_id in list_of_spaces[]:
-                list_of_space_objects += Space(client, space_id)
+                list_of_space_objects += Space(self.client, space_id)
             return list_of_space_objects
 
-    @staticmethod
-    def users():
+    def users(self):
         return "users"
 
-    @staticmethod
-    def cards():
+    def cards(self):
         # query required
         return "cards"
 
-    @staticmethod
-    def tags():
+    def tags(self):
         return "tags"
 
-    @staticmethod
-    def card_types():
+    def card_types(self):
         return "card_types"
 
-    @staticmethod
-    def time_logs():
+    def time_logs(self):
         return "time_logs"
 
-    @staticmethod
-    def properties():
+    def properties(self):
         return "properties"
 
-    @staticmethod
-    def services():
+    def services(self):
         return "services"
 
 
