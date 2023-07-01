@@ -1,5 +1,6 @@
 import requests
 from resources.Space import Space
+from resources.Property import Property
 
 class ListOf:
 
@@ -8,8 +9,8 @@ class ListOf:
 
     def spaces(self, ids_only = False):
         api_url = f"{self.client.base_api_url}/spaces"
-        list_of_spaces = requests.get(api_url, headers=self.client.headers)
-        list_of_spaces = list_of_spaces.json()
+        list_of_spaces_request = requests.get(api_url, headers=self.client.headers)
+        list_of_spaces = list_of_spaces_request.json()
         list_of_space_ids = [i['id'] for i in list_of_spaces]
         if ids_only:
             return list_of_space_ids
@@ -32,8 +33,15 @@ class ListOf:
     def time_logs(self):
         return "time_logs"
 
-    def properties(self):
-        return "properties"
+    def properties(self, ids_only = False):
+        api_url = f"{self.client.base_api_url}/company/custom-properties"
+        list_of_properties_request = requests.get(api_url, headers=self.client.headers)
+        list_of_properties = list_of_properties_request.json()
+        list_of_properties_ids = [i['id'] for i in list_of_properties]
+        if ids_only:
+            return list_of_properties_ids
+        else:
+            return [Property(self.client, i) for i in list_of_properties_ids]
 
     def services(self):
         return "services"
