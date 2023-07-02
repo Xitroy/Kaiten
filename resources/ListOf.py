@@ -2,6 +2,8 @@ import requests
 from resources.Space import Space
 from resources.Property import Property
 from resources.User import User
+from resources.Tag import Tag
+from resources.Card import Card
 
 class ListOf:
 
@@ -28,12 +30,29 @@ class ListOf:
         else:
             return [User(i) for i in list_of_users_dict]
 
-    def cards(self):
+    def cards(self, ids_only = False, **query):
         # query required
-        return "cards"
+        # Please consider to read the docs for understanding query
+        # https://developers.kaiten.ru/cards/retrieve-card-list
+        # TODO there is small difference with a card from these request and when you try to get single card
+        api_url = f"{self.client.base_api_url}/cards"
+        list_of_cards_request = requests.get(api_url, headers=self.client.headers, params=query)
+        list_of_cards_dict = list_of_cards_request.json()
+        list_of_cards_ids = [i['id'] for i in list_of_cards_dict]
+        if ids_only:
+            return list_of_cards_ids
+        else:
+            return [Card(None, None, card_params_dict=i) for i in list_of_cards_dict]
 
-    def tags(self):
-        return "tags"
+    def tags(self, ids_only = False):
+        api_url = f"{self.client.base_api_url}/tags"
+        list_of_tags_request = requests.get(api_url, headers=self.client.headers)
+        list_of_tags_dict = list_of_tags_request.json()
+        list_of_tags_ids = [i['id'] for i in list_of_tags_dict]
+        if ids_only:
+            return list_of_tags_ids
+        else:
+            return [Tag(i) for i in list_of_tags_dict]
 
     def card_types(self):
         return "card_types"
