@@ -63,12 +63,12 @@ class ListOf:
     def properties(self, ids_only = False):
         api_url = f"{self.client.base_api_url}/company/custom-properties"
         list_of_properties_request = requests.get(api_url, headers=self.client.headers)
-        list_of_properties = list_of_properties_request.json()
-        list_of_properties_ids = [i['id'] for i in list_of_properties]
+        list_of_properties_dict = list_of_properties_request.json()
+        list_of_properties_ids = [i['id'] for i in list_of_properties_dict]
         if ids_only:
             return list_of_properties_ids
         else:
-            return [Property(self.client, i) for i in list_of_properties_ids]
+            return [Property(None, None, i) for i in list_of_properties_dict]
 
     def services(self):
         return "services"
