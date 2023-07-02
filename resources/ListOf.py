@@ -1,6 +1,7 @@
 import requests
 from resources.Space import Space
 from resources.Property import Property
+from resources.User import User
 
 class ListOf:
 
@@ -17,8 +18,15 @@ class ListOf:
         else:
             return [Space(self.client, i) for i in list_of_space_ids]
 
-    def users(self):
-        return "users"
+    def users(self, ids_only = False):
+        api_url = f"{self.client.base_api_url}/users"
+        list_of_users_request = requests.get(api_url, headers=self.client.headers)
+        list_of_users_dict = list_of_users_request.json()
+        list_of_user_ids = [i['id'] for i in list_of_users_dict]
+        if ids_only:
+            return list_of_user_ids
+        else:
+            return [User(i) for i in list_of_users_dict]
 
     def cards(self):
         # query required
