@@ -28,7 +28,7 @@ board = client.get_board(board_id)
 
 ### Current user
 ```
-current_user = client.get_current_user(property_id)
+current_user = client.get_current_user()
 ```
 
 ### Property
