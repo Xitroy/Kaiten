@@ -3,6 +3,9 @@ from resources.Space import Space
 from resources.Board import Board
 from resources.ListOf import ListOf
 from resources.User import User
+from resources.Property import Property
+
+
 class KaitenClient:
 
     DEFAULT_OPTIONS = {
@@ -32,6 +35,9 @@ class KaitenClient:
 
     def get_current_user(self):
         return User.get_current(self)
+
+    def get_property(self, property_id):
+        return Property(self, property_id)
 
     def list_of(self):
         return ListOf(self)
