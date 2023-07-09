@@ -1,9 +1,9 @@
-from resources.Card import Card
-from resources.Space import Space
-from resources.Board import Board
-from resources.ListOf import ListOf
-from resources.User import User
-from resources.Property import Property
+from kaiten.resources.Card import Card
+from kaiten.resources.Space import Space
+from kaiten.resources.Board import Board
+from kaiten.resources.ListOf import ListOf
+from kaiten.resources.User import User
+from kaiten.resources.Property import Property
 
 
 class KaitenClient:

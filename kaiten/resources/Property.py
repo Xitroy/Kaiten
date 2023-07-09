@@ -1,5 +1,5 @@
 import requests
-from resources.Resource import Resource
+from kaiten.resources.Resource import Resource
 
 
 class Property(Resource):

@@ -1,5 +1,4 @@
-import requests
-from resources.Resource import Resource
+from kaiten.resources.Resource import Resource
 
 class Tag(Resource):
     def __init__(self, tag_params_dict):

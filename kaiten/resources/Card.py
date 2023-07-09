@@ -1,5 +1,5 @@
 import requests
-from resources.Resource import Resource
+from kaiten.resources.Resource import Resource
 
 class Card(Resource):
     def __init__(self, client, card_id, card_params_dict = None):

@@ -1,5 +1,5 @@
 # Kaiten
-Python Kaiten API client for convinient work with it
+Python Kaiten API client for convenient work with it
 
 As this is an open-source project that is community maintained, do not be surprised if some bugs or features are not implemented quickly enough
 
