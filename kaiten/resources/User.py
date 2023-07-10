@@ -1,5 +1,5 @@
 import requests
-from resources.Resource import Resource
+from kaiten.resources.Resource import Resource
 
 class User(Resource):
     def __init__(self, user_params_dict):

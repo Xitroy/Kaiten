@@ -1,4 +1,4 @@
-from resources.Resource import Resource
+from kaiten.resources.Resource import Resource
 import requests
 class Board(Resource):
     def __init__(self, client, board_id):

@@ -1,2 +1,5 @@
-/resources/test.py
+/kaiten/resources/test.py
 /.idea
+/build/
+/dist/
+/kaiten.egg-info/

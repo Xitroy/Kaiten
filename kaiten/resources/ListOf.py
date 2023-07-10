@@ -1,9 +1,9 @@
 import requests
-from resources.Space import Space
-from resources.Property import Property
-from resources.User import User
-from resources.Tag import Tag
-from resources.Card import Card
+from kaiten.resources.Space import Space
+from kaiten.resources.Property import Property
+from kaiten.resources.User import User
+from kaiten.resources.Tag import Tag
+from kaiten.resources.Card import Card
 
 class ListOf:
 
