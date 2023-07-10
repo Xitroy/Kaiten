@@ -7,8 +7,8 @@ As this is an open-source project that is community maintained, do not be surpri
 Just import client, authorize with a server and token. 
 After that you can get essences you need from the API.
 ```
-from KaitenClient import KaitenClient
-client = KaitenClient(server =, token = )
+import kaiten
+client = kaiten.KaitenClient(server =, token = )
 ```
 
 ## Get single resource
