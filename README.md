@@ -3,6 +3,11 @@ Python Kaiten API client for convenient work with it
 
 As this is an open-source project that is community maintained, do not be surprised if some bugs or features are not implemented quickly enough
 
+# Installation
+```
+pip install kaiten
+```
+
 # Quickstart
 Just import client, authorize with a server and token. 
 After that you can get essences you need from the API.
