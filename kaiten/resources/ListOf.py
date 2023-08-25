@@ -74,3 +74,12 @@ class ListOf:
         return "services"
 
 
+    def lanes(self, board_id, ids_only = False):
+        api_url = f"{self.client.base_api_url}/boards/{board_id}/lanes"
+        list_of_lanes_request = requests.get(api_url, headers=self.client.headers)
+        list_of_lanes = list_of_lanes_request.json()
+        list_of_lanes_ids = [i['id'] for i in list_of_lanes]
+        if ids_only:
+            return list_of_lanes_ids
+        else:
+            return [Lane(i) for i in list_of_lanes]
