@@ -65,3 +65,8 @@ tags = client.list_of().tags()
 ```
 properties = client.list_of().properties()
 ```
+
+### List of lanes
+```
+lanes = client.list_of().lanes(board_id)
+```
