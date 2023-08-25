@@ -81,7 +81,7 @@ class ListOf:
             return list_of_columns_ids
         else:
             return [Column(None, None, i) for i in list_of_properties_dict]
-
+    
     def subcolumns(self, ids_only = False, column_id):
         api_url = f"{self.client.base_api_url}/columns/{column_id}/subcolumns"
         list_of_subcolumns_request = requests.get(api_url, headers=self.client.headers)
