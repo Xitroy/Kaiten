@@ -4,6 +4,8 @@ from kaiten.resources.Property import Property
 from kaiten.resources.User import User
 from kaiten.resources.Tag import Tag
 from kaiten.resources.Card import Card
+from kaiten.resources.SubColumn import SubColumn
+from kaiten.resources.Column import Column
 
 class ListOf:
 
@@ -79,6 +81,16 @@ class ListOf:
             return list_of_columns_ids
         else:
             return [Column(None, None, i) for i in list_of_properties_dict]
+
+    def subcolumns(self, ids_only = False, column_id):
+        api_url = f"{self.client.base_api_url}/columns/{column_id}/subcolumns"
+        list_of_subcolumns_request = requests.get(api_url, headers=self.client.headers)
+        list_of_subcolumns_dict = list_of_subcolumns_request.json()
+        list_of_subcolumns_ids = [i['id'] for i in list_of_subcolumns_dict]
+        if ids_only:
+            return list_of_subcolumns_ids
+        else:
+            return [SubColumn(None, None, i) for i in list_of_subcolumns_dict]
 
     def services(self):
         return "services"
