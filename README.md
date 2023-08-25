@@ -65,3 +65,13 @@ tags = client.list_of().tags()
 ```
 properties = client.list_of().properties()
 ```
+
+### List of Columns
+```
+properties = client.list_of().columns()
+```
+
+### List of SubColumns
+```
+properties = client.list_of().subcolumns()
+```
