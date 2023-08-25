@@ -70,6 +70,16 @@ class ListOf:
         else:
             return [Property(None, None, i) for i in list_of_properties_dict]
 
+    def columns(self, ids_only = False, board_id):
+        api_url = f"{self.client.base_api_url}/boards/{board_id}/columns"
+        list_of_columns_request = requests.get(api_url, headers=self.client.headers)
+        list_of_columns_dict = list_of_columns_request.json()
+        list_of_columns_ids = [i['id'] for i in list_of_columns_dict]
+        if ids_only:
+            return list_of_columns_ids
+        else:
+            return [Column(None, None, i) for i in list_of_properties_dict]
+
     def services(self):
         return "services"
 
