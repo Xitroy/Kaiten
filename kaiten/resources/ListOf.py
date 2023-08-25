@@ -78,7 +78,7 @@ class ListOf:
         if ids_only:
             return list_of_columns_ids
         else:
-            return [Column(None, None, i) for i in list_of_properties_dict]
+            return [Column(None, None, i) for i in list_of_columns_dict]
 
     def services(self):
         return "services"
