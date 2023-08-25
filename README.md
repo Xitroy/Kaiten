@@ -70,3 +70,8 @@ properties = client.list_of().properties()
 ```
 properties = client.list_of().columns()
 ```
+
+### List of SubColumns
+```
+properties = client.list_of().subcolumns()
+```
