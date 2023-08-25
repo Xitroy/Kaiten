@@ -92,6 +92,7 @@ class ListOf:
         else:
             return [SubColumn(None, None, i) for i in list_of_subcolumns_dict]
 
+
     def services(self):
         return "services"
 
